@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<h3>Dictionary</h3><br/>
+<button type="button"  onclick="library();">Library</button><br/><br/>
+<button type="button"  onclick="search();">Search</button><br/><br/>
+<p id="result"></p>
+<body>
+<script>
+    var English=[];
+    var VietNamese=[];
+    var i=0;
+    function library() {
+        while(prompt('you want add new word?')==="y"){
+            English[i]=prompt('Nhap English:');
+            VietNamese[i]=prompt(English[i]+' dich sang Tieng Viet la:');
+            i++;
+        }
+    }
+    function search() {
+        var kiemtra=false;
+        document.getElementById('result').innerHTML="";
+        var word=prompt('Nhap tu can tra tim!!!');
+        for (let j=0;j<=i;j++){
+            if (word===English[j]){
+             document.getElementById('result').innerHTML=word+' dich sang Tieng Viet la: '+VietNamese[j];
+             kiemtra=true;
+            }
+        }
+        if (kiemtra===false){
+            document.getElementById('result').innerHTML=word+' khong co trong thu vien.';
+        }
+    }
+</script>
+</body>
+</html>
